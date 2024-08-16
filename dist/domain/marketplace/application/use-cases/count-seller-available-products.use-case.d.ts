@@ -9,7 +9,7 @@ interface Params {
 type Result = Either<ResourceNotFoundError, {
     amount: number;
 }>;
-export declare class CountSellerTotalProductsUseCase {
+export declare class CountSellerAvailableProductsUseCase {
     private sellersRepository;
     private productsRepository;
     constructor(sellersRepository: SellersRepository, productsRepository: ProductsRepository);
