@@ -9,9 +9,13 @@ export interface UserProps {
 }
 export declare abstract class User extends Entity<UserProps> {
     get name(): string;
+    set name(name: string);
     get email(): string;
+    set email(email: string);
     get phone(): string;
+    set phone(phone: string);
     get password(): string;
+    set password(password: string);
     get avatar(): Attachment | undefined;
     set avatar(avatar: Attachment | undefined);
 }

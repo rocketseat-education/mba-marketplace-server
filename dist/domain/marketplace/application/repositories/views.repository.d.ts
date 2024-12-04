@@ -1,6 +1,10 @@
 import { View } from '@domain/marketplace/enterprise/entities/view';
-export interface Count {
+export interface CountBySeller {
     sellerId: string;
+    from: Date;
+}
+export interface CountByProduct {
+    productId: string;
     from: Date;
 }
 export interface ViewsPerDay {
@@ -8,8 +12,9 @@ export interface ViewsPerDay {
     amount: number;
 }
 export declare abstract class ViewsRepository {
-    abstract count(params: Count): Promise<number>;
-    abstract countPerDay(params: Count): Promise<ViewsPerDay[]>;
+    abstract countBySeller(params: CountBySeller): Promise<number>;
+    abstract countPerDay(params: CountBySeller): Promise<ViewsPerDay[]>;
+    abstract countByProduct(params: CountByProduct): Promise<number>;
     abstract isViewed(view: View): Promise<boolean>;
     abstract create(view: View): Promise<View>;
 }

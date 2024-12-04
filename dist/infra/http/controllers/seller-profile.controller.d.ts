@@ -4,14 +4,14 @@ import { EnvService } from '@infra/env/env.service';
 import { UserPayload } from '@infra/http/auth/jwt.strategy';
 declare const SellerProfileResponse_base: import("nestjs-zod").ZodDto<{
     seller: {
-        name: string;
-        id: string;
-        email: string;
-        phone: string;
         avatar: {
             id: string;
             url: string;
         } | null;
+        name: string;
+        id: string;
+        email: string;
+        phone: string;
     };
 }, z.ZodObjectDef<{
     seller: z.ZodObject<{
@@ -30,34 +30,34 @@ declare const SellerProfileResponse_base: import("nestjs-zod").ZodDto<{
             url: string;
         }>>;
     }, "strip", z.ZodTypeAny, {
-        name: string;
-        id: string;
-        email: string;
-        phone: string;
         avatar: {
             id: string;
             url: string;
         } | null;
+        name: string;
+        id: string;
+        email: string;
+        phone: string;
     }, {
-        name: string;
-        id: string;
-        email: string;
-        phone: string;
         avatar: {
             id: string;
             url: string;
         } | null;
+        name: string;
+        id: string;
+        email: string;
+        phone: string;
     }>;
 }, "strip", z.ZodTypeAny>, {
     seller: {
-        name: string;
-        id: string;
-        email: string;
-        phone: string;
         avatar: {
             id: string;
             url: string;
         } | null;
+        name: string;
+        id: string;
+        email: string;
+        phone: string;
     };
 }>;
 declare class SellerProfileResponse extends SellerProfileResponse_base {

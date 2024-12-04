@@ -2,7 +2,7 @@ import { z } from 'nestjs-zod/z';
 import { EditProductUseCase } from '@domain/marketplace/application/use-cases/edit-product.use-case';
 import { EnvService } from '@infra/env/env.service';
 import { UserPayload } from '@infra/http/auth/jwt.strategy';
-declare const CreateProductRequestBody_base: import("nestjs-zod").ZodDto<{
+declare const EditProductRequestBody_base: import("nestjs-zod").ZodDto<{
     title: string;
     description: string;
     priceInCents: number;
@@ -21,22 +21,23 @@ declare const CreateProductRequestBody_base: import("nestjs-zod").ZodDto<{
     categoryId: string;
     attachmentsIds: string[];
 }>;
-declare class CreateProductRequestBody extends CreateProductRequestBody_base {
+declare class EditProductRequestBody extends EditProductRequestBody_base {
 }
-declare const CreateProductResponse_base: import("nestjs-zod").ZodDto<{
+declare const EditProductResponse_base: import("nestjs-zod").ZodDto<{
     product: {
+        status: import("../../../domain/marketplace/enterprise/entities/product").ProductStatus;
         title: string;
         description: string;
         priceInCents: number;
         owner: {
-            name: string;
-            id: string;
-            email: string;
-            phone: string;
             avatar: {
                 id: string;
                 url: string;
             } | null;
+            name: string;
+            id: string;
+            email: string;
+            phone: string;
         };
         category: {
             title: string;
@@ -55,6 +56,7 @@ declare const CreateProductResponse_base: import("nestjs-zod").ZodDto<{
         title: z.ZodString;
         description: z.ZodString;
         priceInCents: z.ZodNumber;
+        status: z.ZodNativeEnum<typeof import("../../../domain/marketplace/enterprise/entities/product").ProductStatus>;
         owner: z.ZodObject<{
             id: z.ZodString;
             name: z.ZodString;
@@ -71,23 +73,23 @@ declare const CreateProductResponse_base: import("nestjs-zod").ZodDto<{
                 url: string;
             }>>;
         }, "strip", z.ZodTypeAny, {
-            name: string;
-            id: string;
-            email: string;
-            phone: string;
             avatar: {
                 id: string;
                 url: string;
             } | null;
+            name: string;
+            id: string;
+            email: string;
+            phone: string;
         }, {
-            name: string;
-            id: string;
-            email: string;
-            phone: string;
             avatar: {
                 id: string;
                 url: string;
             } | null;
+            name: string;
+            id: string;
+            email: string;
+            phone: string;
         }>;
         category: z.ZodObject<{
             id: z.ZodString;
@@ -113,18 +115,19 @@ declare const CreateProductResponse_base: import("nestjs-zod").ZodDto<{
             url: string;
         }>, "many">;
     }, "strip", z.ZodTypeAny, {
+        status: import("../../../domain/marketplace/enterprise/entities/product").ProductStatus;
         title: string;
         description: string;
         priceInCents: number;
         owner: {
-            name: string;
-            id: string;
-            email: string;
-            phone: string;
             avatar: {
                 id: string;
                 url: string;
             } | null;
+            name: string;
+            id: string;
+            email: string;
+            phone: string;
         };
         category: {
             title: string;
@@ -137,18 +140,19 @@ declare const CreateProductResponse_base: import("nestjs-zod").ZodDto<{
         }[];
         id: string;
     }, {
+        status: import("../../../domain/marketplace/enterprise/entities/product").ProductStatus;
         title: string;
         description: string;
         priceInCents: number;
         owner: {
-            name: string;
-            id: string;
-            email: string;
-            phone: string;
             avatar: {
                 id: string;
                 url: string;
             } | null;
+            name: string;
+            id: string;
+            email: string;
+            phone: string;
         };
         category: {
             title: string;
@@ -163,18 +167,19 @@ declare const CreateProductResponse_base: import("nestjs-zod").ZodDto<{
     }>;
 }, "strip", z.ZodTypeAny>, {
     product: {
+        status: import("../../../domain/marketplace/enterprise/entities/product").ProductStatus;
         title: string;
         description: string;
         priceInCents: number;
         owner: {
-            name: string;
-            id: string;
-            email: string;
-            phone: string;
             avatar: {
                 id: string;
                 url: string;
             } | null;
+            name: string;
+            id: string;
+            email: string;
+            phone: string;
         };
         category: {
             title: string;
@@ -188,12 +193,12 @@ declare const CreateProductResponse_base: import("nestjs-zod").ZodDto<{
         id: string;
     };
 }>;
-declare class CreateProductResponse extends CreateProductResponse_base {
+declare class EditProductResponse extends EditProductResponse_base {
 }
 export declare class EditProductController {
     private editProduct;
     private envService;
     constructor(editProduct: EditProductUseCase, envService: EnvService);
-    handle(id: string, body: CreateProductRequestBody, user: UserPayload): Promise<CreateProductResponse>;
+    handle(id: string, body: EditProductRequestBody, user: UserPayload): Promise<EditProductResponse>;
 }
 export {};

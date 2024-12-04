@@ -6,5 +6,6 @@ type Raw = PrismaUser & {
 export declare class PrismaSellerMapper {
     static toDomain(raw: Raw): Seller;
     static toCreate(seller: Seller): Prisma.UserCreateInput;
+    static toUpdate(seller: Seller): Prisma.UserUpdateInput;
 }
 export {};

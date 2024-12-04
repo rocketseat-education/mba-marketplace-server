@@ -41,14 +41,14 @@ declare class CreateSellerBody extends CreateSellerBody_base {
 }
 declare const CreateSellerResponse_base: import("nestjs-zod").ZodDto<{
     seller: {
-        name: string;
-        id: string;
-        email: string;
-        phone: string;
         avatar: {
             id: string;
             url: string;
         } | null;
+        name: string;
+        id: string;
+        email: string;
+        phone: string;
     };
 }, z.ZodObjectDef<{
     seller: z.ZodObject<{
@@ -67,34 +67,34 @@ declare const CreateSellerResponse_base: import("nestjs-zod").ZodDto<{
             url: string;
         }>>;
     }, "strip", z.ZodTypeAny, {
-        name: string;
-        id: string;
-        email: string;
-        phone: string;
         avatar: {
             id: string;
             url: string;
         } | null;
+        name: string;
+        id: string;
+        email: string;
+        phone: string;
     }, {
-        name: string;
-        id: string;
-        email: string;
-        phone: string;
         avatar: {
             id: string;
             url: string;
         } | null;
+        name: string;
+        id: string;
+        email: string;
+        phone: string;
     }>;
 }, "strip", z.ZodTypeAny>, {
     seller: {
-        name: string;
-        id: string;
-        email: string;
-        phone: string;
         avatar: {
             id: string;
             url: string;
         } | null;
+        name: string;
+        id: string;
+        email: string;
+        phone: string;
     };
 }>;
 declare class CreateSellerResponse extends CreateSellerResponse_base {

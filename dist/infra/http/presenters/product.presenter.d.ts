@@ -1,5 +1,5 @@
 import { z } from 'nestjs-zod/z';
-import { Product } from '@domain/marketplace/enterprise/entities/product';
+import { Product, ProductStatus } from '@domain/marketplace/enterprise/entities/product';
 import { EnvService } from '@infra/env/env.service';
 export declare class ProductPresenter {
     static zod: z.ZodObject<{
@@ -7,6 +7,7 @@ export declare class ProductPresenter {
         title: z.ZodString;
         description: z.ZodString;
         priceInCents: z.ZodNumber;
+        status: z.ZodNativeEnum<typeof ProductStatus>;
         owner: z.ZodObject<{
             id: z.ZodString;
             name: z.ZodString;
@@ -23,23 +24,23 @@ export declare class ProductPresenter {
                 url: string;
             }>>;
         }, "strip", z.ZodTypeAny, {
-            name: string;
-            id: string;
-            email: string;
-            phone: string;
             avatar: {
                 id: string;
                 url: string;
             } | null;
+            name: string;
+            id: string;
+            email: string;
+            phone: string;
         }, {
-            name: string;
-            id: string;
-            email: string;
-            phone: string;
             avatar: {
                 id: string;
                 url: string;
             } | null;
+            name: string;
+            id: string;
+            email: string;
+            phone: string;
         }>;
         category: z.ZodObject<{
             id: z.ZodString;
@@ -65,18 +66,19 @@ export declare class ProductPresenter {
             url: string;
         }>, "many">;
     }, "strip", z.ZodTypeAny, {
+        status: ProductStatus;
         title: string;
         description: string;
         priceInCents: number;
         owner: {
-            name: string;
-            id: string;
-            email: string;
-            phone: string;
             avatar: {
                 id: string;
                 url: string;
             } | null;
+            name: string;
+            id: string;
+            email: string;
+            phone: string;
         };
         category: {
             title: string;
@@ -89,18 +91,19 @@ export declare class ProductPresenter {
         }[];
         id: string;
     }, {
+        status: ProductStatus;
         title: string;
         description: string;
         priceInCents: number;
         owner: {
-            name: string;
-            id: string;
-            email: string;
-            phone: string;
             avatar: {
                 id: string;
                 url: string;
             } | null;
+            name: string;
+            id: string;
+            email: string;
+            phone: string;
         };
         category: {
             title: string;
@@ -118,7 +121,7 @@ export declare class ProductPresenter {
         title: string;
         description: string;
         priceInCents: number;
-        status: string;
+        status: ProductStatus;
         owner: {
             id: string;
             name: string;

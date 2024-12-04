@@ -18,23 +18,23 @@ export declare class UserPresenter {
             url: string;
         }>>;
     }, "strip", z.ZodTypeAny, {
-        name: string;
-        id: string;
-        email: string;
-        phone: string;
         avatar: {
             id: string;
             url: string;
         } | null;
+        name: string;
+        id: string;
+        email: string;
+        phone: string;
     }, {
-        name: string;
-        id: string;
-        email: string;
-        phone: string;
         avatar: {
             id: string;
             url: string;
         } | null;
+        name: string;
+        id: string;
+        email: string;
+        phone: string;
     }>;
     static toHTTP(envService: EnvService, seller: User): {
         id: string;

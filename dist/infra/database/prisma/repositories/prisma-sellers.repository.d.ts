@@ -8,5 +8,6 @@ export declare class PrismaSellersRepository implements SellersRepository {
     findById(id: string): AsyncMaybe<Seller>;
     findByEmail(email: string): AsyncMaybe<Seller>;
     findByPhone(phone: string): AsyncMaybe<Seller>;
+    save(seller: Seller): Promise<Seller>;
     create(seller: Seller): Promise<Seller>;
 }
