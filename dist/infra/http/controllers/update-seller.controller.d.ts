@@ -8,18 +8,35 @@ declare const UpdateSellerBody_base: import("nestjs-zod").ZodDto<{
     phone: string;
     avatarId: string;
     password?: string | undefined;
-}, z.ZodObjectDef<{
+    newPassword?: string | undefined;
+}, z.ZodEffectsDef<z.ZodObject<{
     name: z.ZodString;
     phone: z.ZodString;
     email: z.ZodString;
     avatarId: z.ZodString;
     password: z.ZodOptional<z.ZodString>;
-}, "strip", z.ZodTypeAny>, {
+    newPassword: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
     name: string;
     email: string;
     phone: string;
     avatarId: string;
     password?: string | undefined;
+    newPassword?: string | undefined;
+}, {
+    name: string;
+    email: string;
+    phone: string;
+    avatarId: string;
+    password?: string | undefined;
+    newPassword?: string | undefined;
+}>>, {
+    name: string;
+    email: string;
+    phone: string;
+    avatarId: string;
+    password?: string | undefined;
+    newPassword?: string | undefined;
 }>;
 declare class UpdateSellerBody extends UpdateSellerBody_base {
 }
