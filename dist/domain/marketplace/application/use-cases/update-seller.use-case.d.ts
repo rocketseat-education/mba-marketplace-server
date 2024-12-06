@@ -14,7 +14,7 @@ interface Params {
     name: string;
     phone: string;
     email: string;
-    avatarId: string;
+    avatarId?: string;
     password?: string;
     newPassword?: string;
 }
